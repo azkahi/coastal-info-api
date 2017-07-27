@@ -1,0 +1,9 @@
+<h1>New Station</h1>
+<%= form_tag({controller: "/coastal_data", action: "create"}, multipart: true, class: "nifty_form") do %>
+  <%= label_tag(:station, "Station name:") %>
+  <%= text_field_tag(:station) %>
+  <br />
+  <%= file_field_tag 'data' %>
+  <br />
+  <%= submit_tag("Upload") %>
+<% end %>
