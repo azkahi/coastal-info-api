@@ -1,4 +1,4 @@
-function Program_PrediksiMamuju2015(fileIn, completeOut, predicOut, varlat, varmsl, timeStart, timeEnd)
+function Program_Prediksi2015(fileIn, completeOut, predicOut, varlat, varmsl, timeStart, timeEnd)
 
 %Chaula Yoga Pradhika
 %12913028
@@ -8,7 +8,7 @@ function Program_PrediksiMamuju2015(fileIn, completeOut, predicOut, varlat, varm
 load(fileIn);
 %Untuk menggunakan program ini, ubah:
 %2. Deklarasi nilai data dari file input (A=*)
-A=Data_MamujuEdit2015;
+A=Data;
 year=A(:,1);
 month=A(:,2);
 day=A(:,3);
