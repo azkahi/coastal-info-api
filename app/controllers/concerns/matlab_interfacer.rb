@@ -26,11 +26,8 @@ module MatlabInterfacer
 				
 				if rawFile
 					inputData = []
-					i = 0
 					rawFile.each do |line|
 						input = Hash.new
-						i = i + 1
-						puts i
 						date, month, year, hour, minute, second, amt = line.match(/^(\d+).(\d+).(\d+)\s*(\d+).(\d+).(\d+)\s*(-*\d+)\s*$/).captures
 						input = { date: date.to_i, month: month.to_i, year: year.to_i, hour: hour.to_i, minute: minute.to_i, second: second.to_i, amt: (amt.to_f/100) }
 						inputData.push(input)
