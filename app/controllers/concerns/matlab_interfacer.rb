@@ -29,7 +29,12 @@ module MatlabInterfacer
 					rawFile.each do |line|
 						input = Hash.new
 						date, month, year, hour, minute, second, amt = line.match(/^(\d+).(\d+).(\d+)\s*(\d+).(\d+).(\d+)\s*(-*\d+)\s*$/).captures
-						input = { date: date.to_i, month: month.to_i, year: year.to_i, hour: hour.to_i, minute: minute.to_i, second: second.to_i, amt: (amt.to_f/100) }
+						if (amt.to_i == 999)
+							amt = 'NaN'
+						else
+							amt = amt.to_f/100
+						end	
+						input = { date: date.to_i, month: month.to_i, year: year.to_i, hour: hour.to_i, minute: minute.to_i, second: second.to_i, amt: amt }
 						inputData.push(input)
 					end
 
@@ -55,10 +60,15 @@ module MatlabInterfacer
 				if rawFile
 					rawFile.each do |line|
 						date, hour, amt = line.match(/^(\d+.\d+.\d+)\s*(\d+).\d+.\d+\s*(-*\d+)\s*$/).captures
+						if (amt.to_i == 999)
+							amt = nil
+						else
+							amt = amt.to_f/100
+						end	
 						rubyDate = Date.parse(date)
 						if (rubyDate >= date_start && rubyDate <= date_end)
 							input = Hash.new
-							input = { date: date, hour: hour.to_i, amt: (amt.to_f/100) }
+							input = { date: date, hour: hour.to_i, amt: amt }
 							currentData.push(input)
 						end
 					end
