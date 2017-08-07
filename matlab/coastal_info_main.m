@@ -1,3 +1,3 @@
-timeStart = datenum(2014,9,26,0,0,0);
+timeStart = datenum(2014,10,8,0,0,0);
 timeEnd = datenum(2017,5,17,0,0,0);
-Program_Prediksi2015('Data.txt', 'Complete.txt', 'Predict.txt', -2.67, 0.961855493, timeStart, timeEnd);
+Program_Prediksi2015('Data.txt', 'Complete.txt', 'Predict.txt', -8.21, 1.61, timeStart, timeEnd);
