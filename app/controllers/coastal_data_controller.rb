@@ -6,6 +6,8 @@ class CoastalDataController < ApplicationController
 		process_data(params[:station], start_date, end_date, prediction)
 		response = []
 		data = Hash.new
+		data[:lat] = et_data_station(params[:station], 'LAT_')
+		data[:lon] = et_data_station(params[:station], 'LON_')
 		Dir.chdir "matlab" do
 			complete = File.open("Complete.txt", "r")
 			predict = File.open("Predict.txt", "r")
